@@ -1,0 +1,26 @@
+.sb-background {
+  width: 346px;
+  height: 78px;
+  border-radius: 8px;
+  padding: 0 20px 0 20px;
+}
+.sb-info {
+  background-color: #2B303B;
+}
+.sb-error {
+  background-color: #D6293E;
+}
+
+.sb-message {
+  padding-left: 10px;
+  color: white;
+  width: 100%;
+}
+
+.sb-icon {
+  color: white;
+}
+
+.sb-close-link {
+  color: white
+}
