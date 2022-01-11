@@ -13,12 +13,17 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { HeroDetailComponent } from './components/hero-detail/hero-detail.component';
 import { HeroesComponent } from './components/heroes/heroes.component';
 import { HeroSearchComponent } from './components/hero-search/hero-search.component';
-import {SnackbarContentComponent} from "./components/snackbar-content/snackbar-content.component";
 import {MatIconModule} from "@angular/material/icon";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {FlexLayoutModule} from "@angular/flex-layout";
 import {httpInterceptorProviders} from "./htpp-interceptor/http-interceptor.interceptor";
+import {MatButtonModule} from "@angular/material/button";
+import {MatTabsModule} from "@angular/material/tabs";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatInputModule} from "@angular/material/input";
+import {MatListModule} from "@angular/material/list";
+import {MatCardModule} from "@angular/material/card";
 
 @NgModule({
   imports: [
@@ -36,15 +41,20 @@ import {httpInterceptorProviders} from "./htpp-interceptor/http-interceptor.inte
       InMemoryDataService, {dataEncapsulation: false}
     ),
     MatIconModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatButtonModule,
+    MatTabsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatListModule,
+    MatCardModule
   ],
   declarations: [
     AppComponent,
     DashboardComponent,
     HeroesComponent,
     HeroDetailComponent,
-    HeroSearchComponent,
-    SnackbarContentComponent
+    HeroSearchComponent
   ],
   providers: [httpInterceptorProviders],
   bootstrap: [ AppComponent ]

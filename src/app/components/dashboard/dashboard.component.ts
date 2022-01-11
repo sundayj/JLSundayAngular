@@ -6,10 +6,10 @@ import {take} from "rxjs/operators";
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: [ './dashboard.component.css' ]
+  styleUrls: [ './dashboard.component.scss' ]
 })
 export class DashboardComponent implements OnInit {
-  heroes: Hero[] = [];
+  public heroes: Hero[] = [];
 
   constructor(private heroService: HeroService) { }
 

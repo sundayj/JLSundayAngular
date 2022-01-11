@@ -1,0 +1,22 @@
+#list-and-details {
+  display: flex;
+  align-items: center;
+}
+
+.hero-input, .hero-list, .hero-details {
+  width: 100%;
+}
+
+@media (min-width: 500px) {
+  .hero-input, .hero-list, .hero-details {
+    width: 50%;
+  }
+}
+
+.badge {
+  color: white;
+  padding: 0.8em 0.7em 0 0.7em;
+  background-color:#405061;
+  height: 2em;
+  border-radius: 4px;
+}

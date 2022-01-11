@@ -1,9 +1,12 @@
 <h2>Top Heroes</h2>
-<div class="heroes-menu">
-  <a *ngFor="let hero of heroes"
-      routerLink="/detail/{{hero.id}}">
+<div class="heroes-menu" fxLayout="row" fxLayoutAlign="start" fxLayoutGap="10px">
+  <ng-container *ngFor="let hero of heroes">
+    <button mat-flat-button
+            color="primary"
+            routerLink="/detail/{{hero.id}}">
       {{hero.name}}
-  </a>
+    </button>
+  </ng-container>
 </div>
 
 <app-hero-search></app-hero-search>

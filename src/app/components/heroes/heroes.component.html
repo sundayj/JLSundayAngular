@@ -1,21 +1,53 @@
 <h2>My Heroes</h2>
 
-<div>
-  <label for="new-hero">Hero name: </label>
-  <input id="new-hero" #heroName />
 
+<section>
+  <mat-form-field class="hero-input">
+    <mat-label>Hero Name</mat-label>
+    <input matInput type="text" id="new-hero" #heroName [(ngModel)]="newHero">
+    <button *ngIf="newHero" matSuffix mat-icon-button aria-label="Clear" (click)="newHero=''">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+</section>
+<section>
   <!-- (click) passes input value to add() and then clears the input -->
-  <button class="add-button" (click)="add(heroName.value); heroName.value=''">
+  <button mat-stroked-button class="add-button" (click)="add(heroName.value); heroName.value=''">
     Add hero
   </button>
-</div>
+</section>
 
-<ul class="heroes">
-  <li *ngFor="let hero of heroes">
-    <a routerLink="/detail/{{hero.id}}">
-      <span class="badge">{{hero.id}}</span> {{hero.name}}
-    </a>
-    <button class="delete" title="delete hero"
-      (click)="delete(hero)">x</button>
-  </li>
-</ul>
+<!--<ul class="heroes">-->
+<!--  <li *ngFor="let hero of heroes">-->
+<!--    <a routerLink="/detail/{{hero.id}}">-->
+<!--      <span class="badge">{{hero.id}}</span> {{hero.name}}-->
+<!--    </a>-->
+<!--    <button class="delete" title="delete hero"-->
+<!--      (click)="delete(hero)">x</button>-->
+<!--  </li>-->
+<!--</ul>-->
+<div fxLayout id="list-and-details">
+  <section fxFlex="50%" class="hero-list">
+    <mat-selection-list #heroSelection multiple="false">
+      <mat-list-option *ngFor="let hero of heroes" [value]="hero">
+        <div  fxLayout="row" fxLayoutAlign="space-between center">
+          <span class="badge">{{hero.id}}</span> {{hero.name}}
+          <mat-icon
+            [inline]="true"
+            title="Delete Hero"
+            (click)="delete(hero)"
+          >delete</mat-icon>
+        </div>
+      </mat-list-option>
+    </mat-selection-list>
+  </section>
+
+  <mat-divider [vertical]="true"></mat-divider>
+
+  <section  fxFlex="50%" class="hero-details">
+    <app-hero-detail
+      *ngIf="heroSelection.selectedOptions.selected[0]?.value"
+      [hero]="heroSelection.selectedOptions.selected[0]?.value"
+    ></app-hero-detail>
+  </section>
+</div>

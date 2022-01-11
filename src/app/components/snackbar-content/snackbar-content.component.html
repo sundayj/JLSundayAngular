@@ -1,6 +1,0 @@
-<div [classList]="getBackgroundClass()" fxLayout="row" fxLayoutAlign="space-evenly center">
-  <mat-icon *ngIf="data.isError" class="sb-icon sb-info-error">error_outlined</mat-icon>
-  <mat-icon *ngIf="!data.isError" class="sb-icon sb-info-error">check</mat-icon>
-  <span class="sb-message">{{ data.message }}</span>
-  <mat-icon class="sb-icon sb-close" style="cursor: pointer;" (click)="closeMe()">close</mat-icon>
-</div>

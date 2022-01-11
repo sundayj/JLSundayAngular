@@ -1,6 +1,11 @@
-<h1>{{title}}</h1>
-<nav>
-  <a routerLink="/dashboard">Dashboard</a>
-  <a routerLink="/heroes">Heroes</a>
-</nav>
-<router-outlet></router-outlet>
+<div id="WORKSPACE">
+  <h1>{{title}}</h1>
+  <nav mat-tab-nav-bar [backgroundColor]="background">
+    <a mat-tab-link *ngFor="let link of links"
+       (click)="activeLink = link"
+       [active]="activeLink == link"
+       [routerLink]="link | lowercase"
+    > {{link}} </a>
+  </nav>
+  <router-outlet></router-outlet>
+</div>

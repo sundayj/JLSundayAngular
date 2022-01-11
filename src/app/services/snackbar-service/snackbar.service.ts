@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import {SnackbarContentComponent} from "../../components/snackbar-content/snackbar-content.component";
+import {MatSnackBar, MatSnackBarRef, TextOnlySnackBar} from '@angular/material/snack-bar';
 
 @Injectable({
   providedIn: 'root',
@@ -8,17 +7,20 @@ import {SnackbarContentComponent} from "../../components/snackbar-content/snackb
 export class SnackbarService {
   constructor(private snackBar: MatSnackBar) {}
 
+  private snackBarRef: MatSnackBarRef<TextOnlySnackBar> | undefined;
+
   showError(description: string): void {
-    this.snackBar.openFromComponent(SnackbarContentComponent, {
-      data: { message: description, isError: true },
-    });
+    this.snackBarRef = this.snackBar.open(
+      description, 'X', {
+        panelClass: 'sb-error'
+      });
   }
 
   showInfo(description: string): void {
-    this.snackBar.openFromComponent(SnackbarContentComponent, {
-      data: { message: description, isError: false },
-      duration: 3000,
-    });
+    this.snackBar.open(
+      description, 'X', {
+        duration: 3000
+      });
   }
 
   dismissSnackBar(): void {
